@@ -22,3 +22,16 @@ $(".campo-digitacao").on("input",function(){
 	var qtdCaracteresArea = conteudo.length;
 	$("#qtdCaracteresTxtArea").text(qtdCaracteresArea);;
 });
+
+var tempoRestante = $("#tempoDigitacao").text();
+
+campo.one("focus",function(){
+	var idInterval = setInterval(function(){
+		if(tempoRestante == 1){
+			campo.attr("disabled",true);
+			clearInterval(idInterval);
+		}
+		$("#tempoDigitacao").text(--tempoRestante);
+		console.log(tempoRestante);
+	},1000);
+});
