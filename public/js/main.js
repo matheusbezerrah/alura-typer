@@ -6,7 +6,9 @@ $(document).ready(function(){
 	atualizaTamanhoFrase();
 	inicializaContadores();
 	inicializaCronometro();
+	inicializaCores();
 	$("#btn-reiniciar").click(reiniciaJogo);
+	$("#btn-reiniciar").hide();
 });
 
 /*
@@ -41,10 +43,32 @@ function inicializaCronometro(){
 			if(tempoRestante == 1){
 				campo.attr("disabled",true);
 				clearInterval(idInterval);
+				campo.toggleClass("cor-fundo-area");
+				$("#btn-reiniciar").show();
 			}
 			$("#tempoDigitacao").text(--tempoRestante);
-			console.log(tempoRestante);
+			//console.log(tempoRestante);
 		},1000);
+	});
+}
+
+function inicializaCores(){
+	campo.on("input",function(){
+		
+		var digitado = campo.val();
+		var comparavel = frase.substr(0,digitado.length);
+
+		console.log(digitado);
+		console.log(comparavel);
+
+		if(digitado == comparavel){
+			console.log("Certo");
+			campo.addClass("borda-azul");
+			campo.removeClass("borda-vermelha");
+		}else{
+			campo.addClass("borda-vermelha");
+			campo.removeClass("borda-azul");
+		}
 	});
 }
 
@@ -55,4 +79,8 @@ function reiniciaJogo(){
 	$("#qtdPalavrasTxtArea").text("0");
 	$("#qtdCaracteresTxtArea").text("0");
 	inicializaCronometro();
+	campo.toggleClass("cor-fundo-area");
+	campo.removeClass("borda-azul");
+	campo.removeClass("borda-vermelha");
+	$("#btn-reiniciar").hide();
 }

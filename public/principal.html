@@ -2,32 +2,51 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Projeto Teste</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Alura Typer</title>
 </head>
 <body>
 
-<h1>Projeto Teste</h1>
+<h1 class="center">Alura Typer</h1>
 
-<p class="frase">LoreLorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p class="frase left">Os dois amigos do golpista Michel Temer presos na quinta-feira (29) pela Polícia Federal na Operação Skala, o advogado José Yunes, ex-assessor da Presidência, e o coronel aposentado da Polícia Militar de São Paulo João Baptista Lima Filho, foram denunciados à Justiça Federal no último dia 21 pela Procuradoria da República no Distrito Federal.
 
-<ul>
-	<li><span id="qtdPalavras"> X </span> Palavras</li>
-	<li><span id="tempoDigitacao">5</span> Segundos</li>
-</ul>
+Por meio de um aditamento, eles e o operador financeiro Lúcio Funaro, delator da Operação Lava Jato, foram incluídos na denúncia do ex-procurador-geral da República Rodrigo Janot, que acusa de formação de organização criminosa políticos do MDB. No mesmo aditamento, foram incluídas na denúncia outras duas pessoas, cujos nomes a TV Globo buscava apurar até a última atualização desta reportagem.
 
-<textarea class="campo-digitacao" rows="8" cols="80"></textarea>
+Se a denúncia for aceita pelo juiz Marcus Vinicius Reis, da 12ª Vara da Justiça Federal em Brasília, Yunes e Lima Filho se tornarão réus. No caso de Funaro, a denúncia só terá efeito se ele for condenado a menos de 30 anos de prisão nos processos aos quais responde – esse é o tempo limite de prisão previsto no acordo de delação que firmou com o Ministério Público.
 
-<ul>
-    <li><span id="qtdCaracteresTxtArea"> X </span> Caracteres</li>
-    <li><span id="qtdPalavrasTxtArea"> X </span> Palavras</li>
-</ul>
+A informação sobre a inclusão de Yunes e Lima Filho na denúncia foi antecipada na edição deste sábado (31) do jornal "O Globo".</p>
 
-<button id="btn-reiniciar">Reiniciar Jogo</button>
+<div class="marcadores-digitacao">
+	<ul class="center">
+		<li>
+			<i class="small material-icons icones">border_color</i>
+			<span id="qtdPalavras"> X </span> Palavras
+		</li>
+		<li>
+			<i class="small material-icons icones">access_alarm</i>
+			<span id="tempoDigitacao"> 30 </span> Segundos
+		</li>
+	</ul>
+</div>
+
+<div class="sup-campo center">
+	<textarea class="campo-digitacao" rows="8" cols="80"></textarea>
+	
+		<a id="btn-reiniciar" class="center btn-floating btn-large waves-effect waves-light red">
+		<i class="material-icons">restore</i>
+		</a>
+	
+</div>
+
+<div class="marcadores-digitacao">
+	<ul class="center">
+    	<li><span id="qtdCaracteresTxtArea"> X </span> Caracteres</li>
+	    <li><span id="qtdPalavrasTxtArea"> X </span> Palavras</li>
+	</ul>
+</div>
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mask.js"></script>
