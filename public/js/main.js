@@ -7,9 +7,20 @@ $(document).ready(function(){
 	inicializaContadores();
 	inicializaCronometro();
 	inicializaCores();
+	excluirNomeCompetidor();
 	$("#btn-reiniciar").click(reiniciaJogo);
+	$("#cronometro").show();
 	$("#btn-reiniciar").hide();
-});
+});	
+
+function excluirNomeCompetidor(){
+	var campoCompetidor = $("#nome-competidor");
+
+	$("#excluir-nome-competidor").click(function(){
+		campoCompetidor.val("");
+		campoCompetidor.focus();
+	});
+}
 
 /*
 ** retorna a quantidade de palavras de um conteúdo
@@ -41,10 +52,9 @@ function inicializaCronometro(){
 	campo.one("focus",function(){
 		var idInterval = setInterval(function(){
 			if(tempoRestante == 1){
-				campo.attr("disabled",true);
 				clearInterval(idInterval);
-				campo.toggleClass("cor-fundo-area");
-				$("#btn-reiniciar").show();
+				finalizaJogo();
+				insereLinha();
 			}
 			$("#tempoDigitacao").text(--tempoRestante);
 			//console.log(tempoRestante);
@@ -58,11 +68,7 @@ function inicializaCores(){
 		var digitado = campo.val();
 		var comparavel = frase.substr(0,digitado.length);
 
-		console.log(digitado);
-		console.log(comparavel);
-
 		if(digitado == comparavel){
-			console.log("Certo");
 			campo.addClass("borda-azul");
 			campo.removeClass("borda-vermelha");
 		}else{
@@ -70,6 +76,41 @@ function inicializaCores(){
 			campo.removeClass("borda-azul");
 		}
 	});
+}
+
+function insereLinha(){
+
+	var competidor = $("#nome-competidor").val();
+	competidor = competidor != '' ? competidor : "Competidor Padrão";
+	//console.log(teste);
+
+	var qtdCaracteres = $("#qtdCaracteresTxtArea").text();
+	var qtdPalavras = $("#qtdPalavrasTxtArea").text();
+	var placar = $(".placar");
+	var corpoTabela  = placar.find("tbody");
+	var colunaRemove = "<a href='#' class='botao-remover'>"+
+							"<i class='material-icons'>delete</i>"+
+						"</a>";
+	var linha = "<tr>"+
+					"<td>" + competidor + "</td>" +
+					"<td>" + qtdPalavras + "</td>" +
+					"<td>" + qtdCaracteres + "</td>" +
+					"<td>" + colunaRemove + "</td>" +
+				"</tr>";
+
+	corpoTabela.append(linha);
+
+	$(".botao-remover").click(function(event){
+		event.preventDefault();
+        $(this).parent().parent().remove();
+    });
+}
+
+function finalizaJogo(){
+	campo.attr("disabled",true);
+	campo.toggleClass("cor-fundo-area");
+	$("#cronometro").hide();
+	$("#btn-reiniciar").show();
 }
 
 function reiniciaJogo(){
@@ -83,4 +124,5 @@ function reiniciaJogo(){
 	campo.removeClass("borda-azul");
 	campo.removeClass("borda-vermelha");
 	$("#btn-reiniciar").hide();
+	$("#cronometro").show();
 }

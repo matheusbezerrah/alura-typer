@@ -4,53 +4,87 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/libs/materialize.min.css">
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Alura Typer</title>
+
+    <title>Flash Typer</title>
 </head>
 <body>
 
-<h1 class="center">Alura Typer</h1>
+<h1 class="center">Flash Typer</h1>
+<div class="info-competidor">
+	<ul>
+		<li>
+			<input id="nome-competidor" placeholder="Competidor" type="text" name="competidor"/>
+			<a href="#" id="excluir-nome-competidor">
+				<i class='material-icons'>delete</i>
+			</a>
+		</li>
+	</ul>
+</div>
+		
+<!-- Button trigger modal -->
+<div class="center">
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+	  Placar
+	</button>
+</div>
 
-<p class="frase left">Os dois amigos do golpista Michel Temer presos na quinta-feira (29) pela Polícia Federal na Operação Skala, o advogado José Yunes, ex-assessor da Presidência, e o coronel aposentado da Polícia Militar de São Paulo João Baptista Lima Filho, foram denunciados à Justiça Federal no último dia 21 pela Procuradoria da República no Distrito Federal.
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <section class="placar">
+			<h3 class="center">Placar</h3>
+			<table class="centered bordered">
+				<thead>
+					<tr class="center">
+						<th>Competidor</th>
+						<th>Palavras</th>
+						<th>Caracteres</th>
+						<th>Remover</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</section>
+      </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>	
 
-Por meio de um aditamento, eles e o operador financeiro Lúcio Funaro, delator da Operação Lava Jato, foram incluídos na denúncia do ex-procurador-geral da República Rodrigo Janot, que acusa de formação de organização criminosa políticos do MDB. No mesmo aditamento, foram incluídas na denúncia outras duas pessoas, cujos nomes a TV Globo buscava apurar até a última atualização desta reportagem.
-
-Se a denúncia for aceita pelo juiz Marcus Vinicius Reis, da 12ª Vara da Justiça Federal em Brasília, Yunes e Lima Filho se tornarão réus. No caso de Funaro, a denúncia só terá efeito se ele for condenado a menos de 30 anos de prisão nos processos aos quais responde – esse é o tempo limite de prisão previsto no acordo de delação que firmou com o Ministério Público.
-
-A informação sobre a inclusão de Yunes e Lima Filho na denúncia foi antecipada na edição deste sábado (31) do jornal "O Globo".</p>
+<p class="frase left">Os dois amigos do golpista Michel Temer presos na quinta-feira (29) pela Polícia Federal na Operação Skala, o advogado José Yunes, ex-assessor da Presidência, e o coronel aposentado da Polícia Militar de São Paulo João Baptista Lima Filho, foram denunciados à Justiça Federal no último dia 21 pela Procuradoria da República no Distrito Federal.</p>
 
 <div class="marcadores-digitacao">
 	<ul class="center">
-		<li>
-			<i class="small material-icons icones">border_color</i>
-			<span id="qtdPalavras"> X </span> Palavras
-		</li>
-		<li>
-			<i class="small material-icons icones">access_alarm</i>
-			<span id="tempoDigitacao"> 30 </span> Segundos
-		</li>
+	    <li>
+	    	<span id="qtdPalavrasTxtArea"> 0 </span> Palavras
+	    	<span id="qtdCaracteresTxtArea"> 0 </span> Caracteres
+	    </li>
+	   
 	</ul>
 </div>
 
 <div class="sup-campo center">
 	<textarea class="campo-digitacao" rows="8" cols="80"></textarea>
-	
+
+		<div id="cronometro">
+			<i class="small material-icons icones">access_alarm</i>
+			<span id="tempoDigitacao"> 10 </span> Segundos
+		</div>
+		
 		<a id="btn-reiniciar" class="center btn-floating btn-large waves-effect waves-light red">
 		<i class="material-icons">restore</i>
 		</a>
-	
-</div>
-
-<div class="marcadores-digitacao">
-	<ul class="center">
-    	<li><span id="qtdCaracteresTxtArea"> X </span> Caracteres</li>
-	    <li><span id="qtdPalavrasTxtArea"> X </span> Palavras</li>
-	</ul>
 </div>
 
 <script src="js/jquery.js"></script>
 <script src="js/jquery.mask.js"></script>
 <script src="js/main.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
