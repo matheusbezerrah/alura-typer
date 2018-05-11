@@ -82,7 +82,6 @@ function insereLinha(){
 
 	var competidor = $("#nome-competidor").val();
 	competidor = competidor != '' ? competidor : "Competidor Padrão";
-	//console.log(teste);
 
 	var qtdCaracteres = $("#qtdCaracteresTxtArea").text();
 	var qtdPalavras = $("#qtdPalavrasTxtArea").text();
